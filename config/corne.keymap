@@ -69,9 +69,9 @@ keymap {
   num_layer {
     bindings = <
 
-&none   /**/  &none    &kp ESC    &kp EXCL    &kp EQUAL   &kp PG_UP  /**/  &kp PLUS   &kp N7  &kp N8  &kp N9  &kp MULTIPLY  /**/  &none
-&none   /**/  &kp DEL  &kp LEFT   &kp UP      &kp RIGHT   &kp PG_DN  /**/  &kp MINUS  &kp N1  &kp N2  &kp N3  &kp N0        /**/  &none
-&none   /**/  &none    &none      &kp DOWN    &kp HOME    &kp END    /**/  &kp FSLH   &kp N4  &kp N5  &kp N6  &kp DOT       /**/  &none
+&none   /**/  &none    &kp ESC    &kp EXCL    &kp EQUAL   &kp PG_UP  /**/  &kp PLUS   &kp N7  &kp N8  &kp N9  &kp STAR  /**/  &none
+&none   /**/  &kp DEL  &kp LEFT   &kp UP      &kp RIGHT   &kp PG_DN  /**/  &kp MINUS  &kp N1  &kp N2  &kp N3  &kp N0    /**/  &none
+&none   /**/  &none    &none      &kp DOWN    &kp HOME    &kp END    /**/  &kp FSLH   &kp N4  &kp N5  &kp N6  &kp DOT   /**/  &none
                                                         &trans  &mo SYM  &trans  /**/  &trans  &trans  &trans
 
     >;
