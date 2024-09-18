@@ -59,7 +59,7 @@ keymap {
 &none   /**/  &kp Q           &kp W       &kp F       &kp P           &kp B   /**/  &kp J    &kp L           &kp U       &kp Y       &kp SQT           /**/  &none
 &none   /**/  &hm LGUI A      &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I  &hm RGUI O     /**/  &none
 &none   /**/  &kp Z           &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &kp COMMA   &kp DOT     &kp FSLH       /**/  &none
-                                        &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+                                        &kp LGUI  &lt SYM SPACE &kp BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
     >;
   };
@@ -78,9 +78,9 @@ keymap {
   sym_layer {
     bindings = <
 
-&none   /**/  &kp EXCL    &kp AT         &kp HASH     &kp LBKT    &kp DLLR   /**/  &none &kp RBRKT  /**/  &none
-&none   /**/  &kp PRCNT   &kp CARET      &AMPS        &kp LPAR    &kp BSLH   /**/  &none &kp RPAR &kp SEMI &kp COLON  /**/  &none
-&none   /**/  &kp PIPE    &kp GRAVE      &kp TILDE    &kp LBRC    &none      /**/  &none &kp RBRC /**/  &none
+&none   /**/  &kp EXCL    &kp AT         &kp HASH     &kp LBKT    &kp DLLR   /**/  &none  &kp RBRKT   &none     &none       &none  /**/  &none
+&none   /**/  &kp PRCNT   &kp CARET      &kp AMPS     &kp LPAR    &kp BSLH   /**/  &none  &kp RPAR    &kp SEMI  &kp COLON   &none  /**/  &none
+&none   /**/  &kp PIPE    &kp GRAVE      &kp TILDE    &kp LBRC    &none      /**/  &none  &kp RBRC    &none     &none       &none/**/  &none
                                                     &trans      &mo FUNC &trans  /**/  &trans &trans &trans
 
     >;
@@ -97,7 +97,7 @@ keymap {
     >;
   };
 
-  ltu_layer {
+  /*ltu_layer {
     bindings = <
 
 &none   /**/  &none     &none      &none     &none        &none  /**/  &none     &kp ū          &kp ų     &none     &none  /**/  &none
@@ -106,7 +106,7 @@ keymap {
                                          &trans  &trans &trans   /**/  &trans &trans &trans
 
     >;
-  };
+  };*/
 };
 
 /*
