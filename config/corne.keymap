@@ -107,6 +107,7 @@ keymap {
 
     >;
   };
+};
 
 /*
   quick_layer {
@@ -118,5 +119,5 @@ keymap {
                                       &trans  &trans &trans   /**/  &trans &trans &trans
 
     >;
-  };*/
-};
+  };
+*/
