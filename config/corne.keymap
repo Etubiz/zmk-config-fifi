@@ -21,6 +21,8 @@
   flavor = "tap-preferred";
 };
 
+/ {
+
 behaviors {
   hm: homerow_mods {
     compatible = "zmk,behavior-hold-tap";
@@ -70,7 +72,7 @@ keymap {
 &none   /**/  &none    &kp ESC    &kp EXCL    &kp EQUAL   &kp PG_UP  /**/  &kp PLUS   &kp N7  &kp N8  &kp N9  &kp MULTIPLY  /**/  &none
 &none   /**/  &kp DEL  &kp LEFT   &kp UP      &kp RIGHT   &kp PG_DN  /**/  &kp MINUS  &kp N1  &kp N2  &kp N3  &kp N0        /**/  &none
 &none   /**/  &none    &none      &kp DOWN    &kp HOME    &kp END    /**/  &kp FSLH   &kp N4  &kp N5  &kp N6  &kp DOT       /**/  &none
-                                                        &trans  &trans  &trans  /**/  &trans  &trans  &trans
+                                                        &trans  &mo SYM  &trans  /**/  &trans  &trans  &trans
 
     >;
   };
@@ -81,7 +83,7 @@ keymap {
 &none   /**/  &kp EXCL    &kp AT         &kp HASH     &kp LBKT    &kp DLLR   /**/  &none  &kp RBRKT   &none     &none       &none  /**/  &none
 &none   /**/  &kp PRCNT   &kp CARET      &kp AMPS     &kp LPAR    &kp BSLH   /**/  &none  &kp RPAR    &kp SEMI  &kp COLON   &none  /**/  &none
 &none   /**/  &kp PIPE    &kp GRAVE      &kp TILDE    &kp LBRC    &none      /**/  &none  &kp RBRC    &none     &none       &none/**/  &none
-                                                    &trans      &mo FUNC &trans  /**/  &trans &trans &trans
+                                         &trans       &trans    &trans     /**/  &trans     &mo NUM      &trans
 
     >;
   };
@@ -96,17 +98,7 @@ keymap {
 
     >;
   };
-
-  /*ltu_layer {
-    bindings = <
-
-&none   /**/  &none     &none      &none     &none        &none  /**/  &none     &kp ū          &kp ų     &none     &none  /**/  &none
-&none   /**/  &kp ą     &none      &kp š     &kp LSHIFT   &none  /**/  &none     &hm RSHIFT ė   &kp ę     &kp į     &none  /**/  &none
-&none   /**/  &none     &none      &kp č     &none        &none  /**/  &none     &none          &none     &none     &none  /**/  &none
-                                         &trans  &trans &trans   /**/  &trans &trans &trans
-
-    >;
-  };*/
+};
 };
 
 /*
