@@ -38,18 +38,56 @@
   combos {
     compatible = "zmk,combos";
 
+
+    combo_snip {
+        timeout-ms = <50>;
+        layers = <0>;
+        key-positions = <5 6>;
+        bindings = <&kp LG(LS(S))>;
+    };
+    combo_repeat {
+        timeout-ms = <50>;
+        key-positions = <6 7>;
+        bindings = <&key_repeat>;
+    };
+    combo_caps {
+        timeout-ms = <50>;
+        layers = <0>;
+        key-positions = <26 27>;
+        bindings = <&caps_word>;
+    };
+
+    //  0   1   2   3   4 |||   5   6   7   8   9
+    // 10  11  12  13  14 |||  15  16  17  18  19
+    // 20  21  22  23  24 |||  25  26  27  28  29
+    //         30  31  32 |||  34  35  36
+
+    combo_paste {
+        timeout-ms = <50>;
+        key-positions = <2 3>;
+        bindings = <&kp RS(V)>;
+    };
     combo_desktop {
         timeout-ms = <50>;
         layers = <0>;
         key-positions = <3 4>;
-        bindings = <&kp LG(D)>;
+        bindings = <&kp RG(D)>;
     };
-    combo_snip {
+    
+    combo_copy {
         timeout-ms = <50>;
-        layers = <0>;
-        key-positions = <2 3>;
-        bindings = <&kp LG(LS(S))>;
-    };
+        key-positions = <22 23>;
+        bindings = <&kp RS(C)>;
+    };  
+    combo_cut {
+        timeout-ms = <50>;
+        key-positions = <21 22 23>;
+        bindings = <&kp RS(X)>;
+    };  
+    
+
+
+
   };
 
   keymap {
@@ -58,9 +96,9 @@
     default_layer {
       bindings = <
 
-  &none   /**/  &kp Q           &kp W       &kp F       &kp P           &kp B   /**/  &kp J    &kp L           &kp U       &kp Y       &kp SQT           /**/  &none
-  &none   /**/  &hm LGUI A      &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I  &hm RGUI O     /**/  &none
-  &none   /**/  &kp Z           &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &kp COMMA   &kp DOT     &kp FSLH       /**/  &none
+  &none   /**/  &kp Q      &kp W       &kp F       &kp P           &kp B   /**/  &kp J    &kp L           &kp U       &kp Y       &kp SQT   /**/  &none
+  &none   /**/  &kp A      &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I  &kp O     /**/  &none
+  &none   /**/  &kp Z      &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &kp COMMA   &kp DOT     &kp FSLH  /**/  &none
                                           &kp LGUI  &lt SYM SPACE &kp BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
       >;
@@ -92,8 +130,8 @@
       bindings = <
 
   &none   /**/  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT &bt BT_CLR     /**/  &kp C_MUTE    &kp C_PREV  &kp C_PP  &kp C_NEXT &none  /**/  &none
-  &none   /**/  &none           &kp F1        &kp F2          &kp F3     &kp C_BRI_UP   /**/  &kp C_VOL_DN  &kp F7      &kp F8    &kp F9     &none  /**/  &none
-  &none   /**/  &none           &kp F4        &kp F5          &kp F6     &kp C_BRI_DN   /**/  &kp C_VOL_UP  &kp F10     &kp F11   &kp F12    &none  /**/  &none
+  &none   /**/  &none           &kp F1        &kp F2          &kp F3     &kp C_BRI_UP   /**/  &kp C_VOL_UP  &kp F7      &kp F8    &kp F9     &none  /**/  &none
+  &none   /**/  &none           &kp F4        &kp F5          &kp F6     &kp C_BRI_DN   /**/  &kp C_VOL_DN  &kp F10     &kp F11   &kp F12    &none  /**/  &none
                                                         &sys_reset &trans &bootloader   /**/  &trans &trans &sys_reset
 
       >;
