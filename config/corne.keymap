@@ -42,52 +42,48 @@
     combo_snip {
         timeout-ms = <50>;
         layers = <0>;
-        key-positions = <5 6>;
+        key-positions = <6 7>;
         bindings = <&kp LG(LS(S))>;
     };
     combo_repeat {
         timeout-ms = <50>;
-        key-positions = <6 7>;
+        key-positions = <7 8>;
         bindings = <&key_repeat>;
     };
     combo_caps {
         timeout-ms = <50>;
         layers = <0>;
-        key-positions = <26 27>;
+        key-positions = <31 32>;
         bindings = <&caps_word>;
     };
 
-    //  0   1   2   3   4 |||   5   6   7   8   9
-    // 10  11  12  13  14 |||  15  16  17  18  19
-    // 20  21  22  23  24 |||  25  26  27  28  29
-    //         30  31  32 |||  34  35  36
+    //  0   1   2   3   4   5  |||   6   7   8   9  10  11
+    // 12  13  14  15  16  17  |||  18  19  20  21  22  23
+    // 24  25  26  27  28  29  |||  30  31  32  33  34  35
+    //             36  37  38  |||  39  40  41
 
     combo_paste {
         timeout-ms = <50>;
-        key-positions = <2 3>;
-        bindings = <&kp RS(V)>;
+        key-positions = <3 4>;
+        bindings = <&kp RC(V)>;
     };
     combo_desktop {
         timeout-ms = <50>;
         layers = <0>;
-        key-positions = <3 4>;
-        bindings = <&kp RG(D)>;
+        key-positions = <4 5>;
+        bindings = <&kp RC(D)>;
     };
     
     combo_copy {
         timeout-ms = <50>;
-        key-positions = <22 23>;
-        bindings = <&kp RS(C)>;
-    };  
+        key-positions = <27 28>;
+        bindings = <&kp RC(C)>;
+    };
     combo_cut {
         timeout-ms = <50>;
-        key-positions = <21 22 23>;
-        bindings = <&kp RS(X)>;
-    };  
-    
-
-
-
+        key-positions = <26 27 28>;
+        bindings = <&kp RC(X)>;
+    };
   };
 
   keymap {
@@ -137,4 +133,6 @@
       >;
     };
   };
+
+
 };
