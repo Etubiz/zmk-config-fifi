@@ -14,7 +14,8 @@
 #define NUM     1
 #define SYM     2
 #define FUNC    3
-#define LTU     4
+#define GAME    4
+#define LTU     5
 
 &mt {
   tapping-term-ms = <150>;
@@ -71,7 +72,7 @@
         timeout-ms = <50>;
         layers = <0>;
         key-positions = <4 5>;
-        bindings = <&kp RC(D)>;
+        bindings = <&kp RG(D)>;
     };
     
     combo_copy {
@@ -125,13 +126,26 @@
     func_layer {
       bindings = <
 
-  &none   /**/  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT &bt BT_CLR     /**/  &kp C_MUTE    &kp C_PREV  &kp C_PP  &kp C_NEXT &none  /**/  &none
-  &none   /**/  &none           &kp F1        &kp F2          &kp F3     &kp C_BRI_UP   /**/  &kp C_VOL_UP  &kp F7      &kp F8    &kp F9     &none  /**/  &none
-  &none   /**/  &none           &kp F4        &kp F5          &kp F6     &kp C_BRI_DN   /**/  &kp C_VOL_DN  &kp F10     &kp F11   &kp F12    &none  /**/  &none
+  &none   /**/  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT &bt BT_CLR     /**/  &kp C_MUTE    &kp C_PREV  &kp C_PP  &kp C_NEXT &tog GAME  /**/  &none
+  &none   /**/  &none        &kp F1        &kp F2          &kp F3     &kp C_BRI_UP   /**/  &kp C_VOL_UP  &kp F7      &kp F8    &kp F9     &none  /**/  &none
+  &none   /**/  &none        &kp F4        &kp F5          &kp F6     &kp C_BRI_DN   /**/  &kp C_VOL_DN  &kp F10     &kp F11   &kp F12    &none  /**/  &none
                                                         &sys_reset &trans &bootloader   /**/  &trans &trans &sys_reset
 
       >;
     };
+
+    game_layer {
+      bindings = <
+      
+  &none   /**/  &kp TAB      &kp Q    &kp X    &kp E   &kp R   /**/  &none &none &none &none &tog DEFAULT   /**/  &none
+  &none   /**/  &kp LSHIFT   &kp A    &kp W    &kp D   &kp F   /**/  &none &none &none &none &none   /**/  &none
+  &none   /**/  &kp LCTRL    &kp Z    &kp S    &kp C   &kp V   /**/  &none &none &none &none &none   /**/  &none
+                                 &kp RET  &kp SPACE &kp BSPC   /**/  &none &none &none
+
+      >;
+    };
+
+
   };
 
 
