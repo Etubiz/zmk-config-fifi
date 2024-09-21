@@ -137,7 +137,7 @@
     game_layer {
       bindings = <
       
-  &none   /**/  &kp TAB      &kp Q    &kp X    &kp E   &kp R   /**/  &none &none &none &none &tog DEFAULT   /**/  &none
+  &none   /**/  &kp TAB      &kp Q    &kp X    &kp E   &kp R   /**/  &none &none &none &none &tog GAME   /**/  &none
   &none   /**/  &kp LSHIFT   &kp A    &kp W    &kp D   &kp F   /**/  &none &none &none &none &none   /**/  &none
   &none   /**/  &kp LCTRL    &kp Z    &kp S    &kp C   &kp V   /**/  &none &none &none &none &none   /**/  &none
                                  &kp RET  &kp SPACE &kp BSPC   /**/  &none &none &none
