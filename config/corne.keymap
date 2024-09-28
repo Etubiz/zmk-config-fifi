@@ -14,11 +14,12 @@
 #define NUM     1
 #define SYM     2
 #define FUNC    3
-#define GAME    4
-#define LTU     5
+#define LTU     4
+#define GAME    5
+
 
 &mt {
-  tapping-term-ms = <150>;
+  tapping-term-ms = <200>;
   flavor = "tap-preferred";
 };
 
@@ -29,7 +30,7 @@
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
-      tapping-term-ms = <150>;
+      tapping-term-ms = <200>;
       quick-tap-ms = <0>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
@@ -96,7 +97,7 @@
   &none   /**/  &kp Q      &kp W       &kp F       &kp P           &kp B   /**/  &kp J    &kp L           &kp U       &kp Y       &kp SQT   /**/  &none
   &none   /**/  &kp A      &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I  &kp O     /**/  &none
   &none   /**/  &kp Z      &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &kp COMMA   &kp DOT     &kp FSLH  /**/  &none
-                                          &kp LGUI  &lt SYM SPACE &kp BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+                                      &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
       >;
     };
@@ -104,10 +105,10 @@
     num_layer {
       bindings = <
 
-  &none   /**/  &none    &kp ESC    &kp EXCL    &kp EQUAL   &kp PG_UP  /**/  &kp PLUS   &kp N7  &kp N8  &kp N9  &kp STAR  /**/  &none
-  &none   /**/  &kp DEL  &kp LEFT   &kp UP      &kp RIGHT   &kp PG_DN  /**/  &kp MINUS  &kp N1  &kp N2  &kp N3  &kp N0    /**/  &none
-  &none   /**/  &none    &none      &kp DOWN    &kp HOME    &kp END    /**/  &kp FSLH   &kp N4  &kp N5  &kp N6  &kp DOT   /**/  &none
-                                                          &trans  &mo SYM  &trans  /**/  &trans  &trans  &trans
+  &none   /**/  &none    &kp ESC    &kp EXCL    &kp KP_EQUAL  &kp PG_UP  /**/  &kp KP_PLUS   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY /**/  &none
+  &none   /**/  &kp DEL  &kp LEFT   &kp UP      &kp RIGHT     &kp PG_DN  /**/  &kp DOT       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0       /**/  &none
+  &none   /**/  &none    &none      &kp DOWN    &kp HOME      &kp END    /**/  &kp KP_MINUS  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_DIVIDE   /**/  &none
+                                                &trans  &mo SYM  &trans  /**/  &trans  &trans  &trans
 
       >;
     };
@@ -115,10 +116,10 @@
     sym_layer {
       bindings = <
 
-  &none   /**/  &kp EXCL    &kp AT         &kp HASH     &kp LBKT    &kp DLLR   /**/  &none  &kp RBKT   &none     &none       &none  /**/  &none
-  &none   /**/  &kp PRCNT   &kp CARET      &kp AMPS     &kp LPAR    &kp BSLH   /**/  &none  &kp RPAR    &kp SEMI  &kp COLON   &none  /**/  &none
-  &none   /**/  &kp PIPE    &kp GRAVE      &kp TILDE    &kp LBRC    &none      /**/  &none  &kp RBRC    &none     &none       &none/**/  &none
-                                          &trans       &trans    &trans     /**/  &trans     &mo NUM      &trans
+  &none   /**/  &kp EXCL    &kp AT         &kp HASH     &kp LBKT    &kp DLLR   /**/  &none    &kp RBKT   &none     &none       &none  /**/  &none
+  &none   /**/  &kp PRCNT   &kp CARET      &kp AMPS     &kp LPAR    &kp BSLH   /**/  &none    &kp RPAR    &kp SEMI  &kp COLON   &none  /**/  &none
+  &none   /**/  &kp PIPE    &kp GRAVE      &kp TILDE    &kp LBRC    &none      /**/  &none    &kp RBRC    &none     &none       &none/**/  &none
+                                           &trans       &trans      &trans     /**/  &trans     &mo NUM      &trans
 
       >;
     };
@@ -134,17 +135,27 @@
       >;
     };
 
+    ltu_layer {
+      bindings = <
+
+  &none   /**/  &none      &none     &none      &none       &none  /**/  &none     &kp N8         &kp N7    &none     &none  /**/  &none
+  &none   /**/  &kp N1     &none     &kp N6     &kp LSHIFT  &none  /**/  &none     &hm RSHIFT N4  &kp N3    &kp N5    &none  /**/  &none
+  &none   /**/  &kp EQUAL  &none     &kp N2     &none       &none  /**/  &none     &none          &none     &none     &none  /**/  &none
+                                          &trans  &trans &trans   /**/  &trans &trans &trans
+
+      >;
+    };
+
     game_layer {
       bindings = <
       
   &none   /**/  &kp TAB      &kp Q    &kp X    &kp E   &kp R   /**/  &none &none &none &none &tog GAME   /**/  &none
   &none   /**/  &kp LSHIFT   &kp A    &kp W    &kp D   &kp F   /**/  &none &none &none &none &none   /**/  &none
   &none   /**/  &kp LCTRL    &kp Z    &kp S    &kp C   &kp V   /**/  &none &none &none &none &none   /**/  &none
-                                 &kp RET  &kp SPACE &kp BSPC   /**/  &none &none &none
+                                 &kp ESC  &kp SPACE &kp BSPC   /**/  &none &none &none
 
       >;
     };
-
 
   };
 
