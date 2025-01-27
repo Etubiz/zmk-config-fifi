@@ -20,6 +20,7 @@
 
 // TO DO:
 // easy desktop switching
+// notepad open shortcut??
 // number layer is unintuitive
 // remap < and > with other symbols like ( and )
 
@@ -99,7 +100,6 @@
 
     combo_game {
         timeout-ms = <50>;
-        layers = <0>;
         key-positions = <1 2>;
         bindings = <&tog GAME>;
     };
