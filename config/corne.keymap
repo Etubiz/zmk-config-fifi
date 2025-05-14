@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
@@ -11,23 +5,20 @@
 
 // LAYERS
 #define DEFAULT 0
-#define NUM     1
-#define SYM     2
-#define FUNC    3
-#define LTU     4
-#define GAME    5
+#define GAME    1
+#define LTU     2
+#define NUM     3
+#define SYM     4
+#define FUNC    5
 
+#define ALL 0 2 3 4 5
 
 // TO DO:
 // easy desktop switching
 // notepad open shortcut??
-// number layer is unintuitive
 // remap < and > with other symbols like ( and )
 
-/* POWERTOYS:
-  color picker - win shift c
-  screen ruler - win ctrl shift m
-*/
+
 
 &mt {
   tapping-term-ms = <200>;
@@ -51,29 +42,45 @@
   combos {
     compatible = "zmk,combos";
 
-
-    combo_picker {
+    combo_exclamation {
         timeout-ms = <50>;
-        layers = <0>;
-        key-positions = <7 8>;
-        bindings = <&kp LG(LS(C))>;
+        layers = <DEFAULT>;
+        key-positions = <7 9>;
+        bindings = <&kp EXCL>;
+    };
+    combo_rsquare {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <8 9>;
+        bindings = <&kp RIGHT_BRACKET>;
     };
     combo_snip {
         timeout-ms = <50>;
-        layers = <0>;
+        layers = <DEFAULT>;
         key-positions = <9 10>;
         bindings = <&kp LG(LS(S))>;
     };
-
 
     combo_repeat {
         timeout-ms = <50>;
         key-positions = <19 20>;
         bindings = <&key_repeat>;
     };
+    combo_semicolon {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <19 21>;
+        bindings = <&kp SEMICOLON>;
+    };
+    combo_rcurly {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <20 21>;
+        bindings = <&kp RIGHT_PARENTHESIS>;
+    };
     combo_redo {
         timeout-ms = <50>;
-        layers = <0>;
+        layers = <DEFAULT>;
         key-positions = <21 22>;
         bindings = <&kp RC(RS(Z))>;
     };
@@ -81,15 +88,27 @@
 
     combo_caps {
         timeout-ms = <50>;
-        layers = <0>;
+        layers = <DEFAULT>;
         key-positions = <31 32>;
         bindings = <&caps_word>;
     };
-    combo_ruler {
+    combo_colon {
         timeout-ms = <50>;
-        layers = <0>;
+        layers = <ALL>;
+        key-positions = <31 33>;
+        bindings = <&kp COLON>;
+    };
+    combo_rsquiggly {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <32 33>;
+        bindings = <&kp RIGHT_BRACE>;
+    };
+    combo_picker {
+        timeout-ms = <50>;
+        layers = <DEFAULT>;
         key-positions = <33 34>;
-        bindings = <&kp LG(LC(LS(M)))>;
+        bindings = <&kp LG(LS(C))>;
     };
 
     //  0  //   1   2   3   4   5  |||   6   7   8   9  10  //  11
@@ -97,10 +116,16 @@
     // 24  //  25  26  27  28  29  |||  30  31  32  33  34  //  35
     //                 36  37  38  |||  39  40  41
 
-
-    combo_game {
+    combo_lsquare {
         timeout-ms = <50>;
-        key-positions = <1 2>;
+        layers = <ALL>;
+        key-positions = <2 3>;
+        bindings = <&kp LEFT_BRACKET>;
+    };
+    combo_game_out {
+        timeout-ms = <50>;
+        layers = <GAME>;
+        key-positions = <2 4>;
         bindings = <&tog GAME>;
     };
     combo_paste {
@@ -112,12 +137,35 @@
 
     combo_undo {
         timeout-ms = <50>;
-        layers = <0>;
+        layers = <DEFAULT>;
         key-positions = <13 14>;
         bindings = <&kp RC(Z)>;
     };
+    combo_lcurly {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <14 15>;
+        bindings = <&kp LEFT_PARENTHESIS>;
+    };
+    combo_game_in {
+        timeout-ms = <50>;
+        layers = <DEFAULT>;
+        key-positions = <14 16>;
+        bindings = <&tog GAME>;
+    };
 
-
+    combo_lsquiggly {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <26 27>;
+        bindings = <&kp LEFT_BRACE>;
+    };
+    combo_dash {
+        timeout-ms = <50>;
+        layers = <DEFAULT>;
+        key-positions = <26 28>;
+        bindings = <&kp KP_MINUS>;
+    };
     combo_copy {
         timeout-ms = <50>;
         key-positions = <27 28>;
@@ -144,41 +192,13 @@
       >;
     };
 
-    num_layer {
+    game_layer {
       bindings = <
-
-  &none   /**/  &none    &kp ESC    &kp EXCL    &kp EQUAL    &kp PG_UP  /**/  &kp KP_PLUS   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY /**/  &none
-  &none   /**/  &kp DEL  &kp LEFT   &kp UP      &kp RIGHT    &kp PG_DN  /**/  &kp DOT       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0       /**/  &none
-  &none   /**/  &none    &none      &kp DOWN    &kp HOME     &kp END    /**/  &kp KP_MINUS  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_DIVIDE   /**/  &none
-                                   &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
-
-      >;
-    };
-
-    sym_layer {
-      bindings = <
-
-  &none   /**/  &kp EXCL    &kp AT         &kp HASH     &kp LBKT    &kp DLLR   /**/  &none    &kp RBKT    &none     &none       &none  /**/  &none
-  &none   /**/  &kp PRCNT   &kp CARET      &kp AMPS     &kp LPAR    &kp BSLH   /**/  &none    &kp RPAR    &kp SEMI  &kp COLON   &none  /**/  &none
-  &none   /**/  &kp PIPE    &kp GRAVE      &kp TILDE    &kp LBRC    &none      /**/  &none    &kp RBRC    &none     &none       &none/**/  &none
-                                          &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
-
-      >;
-    };
-
-    func_layer {
-      bindings = <
-
-  // VVV   OLD   VVV
-  // &none   /**/  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_NXT &bt BT_CLR     /**/  &kp C_MUTE    &kp C_PREV  &kp C_PP  &kp C_NEXT &none  /**/  &none
-  // &none   /**/  &none        &kp F1        &kp F2          &kp F3     &kp C_BRI_UP   /**/  &kp C_VOL_UP  &kp F7      &kp F8    &kp F9     &none  /**/  &none
-  // &none   /**/  &none        &kp F4        &kp F5          &kp F6     &kp C_BRI_DN   /**/  &kp C_VOL_DN  &kp F10     &kp F11   &kp F12    &none  /**/  &none
-  //                                                    &sys_reset &trans &bootloader   /**/  &trans &trans &sys_reset
-
-  &none   /**/    &kp F10   &kp F9   &kp F8   &kp F7    &none   /**/  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_NXT      /**/  &none
-  &none   /**/    &kp F11   &kp F3   &kp F2   &kp F1    &none   /**/  &none       &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP    /**/  &none
-  &none   /**/    &kp F12   &kp F6   &kp F5   &kp F4    &none   /**/  &none       &kp C_PREV      &kp C_PP        &kp C_NEXT      &kp C_MUTE      /**/  &none
-                                &sys_reset &bootloader &trans   /**/  &trans &bootloader &sys_reset
+      
+  &none   /**/  &kp TAB      &kp Q    &kp X    &kp E   &kp R   /**/  &kp T    &kp Y    &kp U   &kp I      &kp O   /**/  &none
+  &none   /**/  &kp LSHIFT   &kp A    &kp W    &kp D   &kp F   /**/  &kp G    &kp H    &kp J   &kp K      &kp L   /**/  &none
+  &none   /**/  &kp LCTRL    &kp Z    &kp S    &kp C   &kp V   /**/  &kp B    &kp N    &kp M   &kp COMMA  &kp DOT /**/  &none
+                                   &kp ESC  &kp SPACE &kp BSPC /**/  &lt FUNC TAB &lt NUM RET &lt SYM UNDERSCORE
 
       >;
     };
@@ -189,18 +209,42 @@
   &none   /**/  &none      &none     &none      &none       &none  /**/  &none     &kp N8         &kp N7    &none     &none  /**/  &none
   &none   /**/  &kp N1     &none     &kp N6     &kp LSHIFT  &none  /**/  &none     &hm RSHIFT N4  &kp N3    &kp N5    &none  /**/  &none
   &none   /**/  &kp EQUAL  &none     &kp N2     &none       &none  /**/  &none     &none          &none     &none     &none  /**/  &none
-                                           &trans  &trans &trans   /**/  &trans &trans &trans
+                              &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
       >;
     };
 
-    game_layer {
+    num_layer {
       bindings = <
-      
-  &none   /**/  &kp TAB      &kp Q    &kp X    &kp E   &kp R   /**/  &kp T    &kp Y    &kp U   &kp I      &kp O  /**/  &none
-  &none   /**/  &kp LSHIFT   &kp A    &kp W    &kp D   &kp F   /**/  &kp G    &kp H    &kp J   &kp K      &kp L      /**/  &none
-  &none   /**/  &kp LCTRL    &kp Z    &kp S    &kp C   &kp V   /**/  &kp B    &kp N    &kp M   &kp COMMA  &kp DOT    /**/  &none
-                               &kp ESC  &kp SPACE &kp BSPC /**/  &lt FUNC TAB &lt NUM RET &lt SYM UNDERSCORE
+
+   &none /**/  &kp HASH &kp LESS_THAN   &kp GREATER_THAN  &kp DOLLAR    &kp PERCENT  /**/  &kp GRAVE   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp SQT   /**/  &none
+   &none /**/  &kp EXCL &kp KP_MINUS    &kp KP_PLUS       &kp KP_EQUAL  &kp AT       /**/  &kp BSLH    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0 /**/  &none
+   &none /**/  &kp PIPE &kp KP_MULTIPLY &kp KP_DIVIDE     &kp AMPERSAND &kp TILDE    /**/  &kp CARET   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp DOT   /**/  &none
+                                                &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+
+
+      >;
+    };
+
+    sym_layer {
+      bindings = <
+
+  &none   /**/  &none  &kp INSERT &none    &kp DELETE &none     /**/ &none    &kp F7    &kp F8  &kp F9   &kp F10 /**/  &none
+  &none   /**/  &none  &kp LEFT   &kp UP   &kp RIGHT  &kp PG_UP /**/ &none    &kp F1    &kp F2  &kp F3   &kp F11  /**/  &none
+  &none   /**/  &none  &kp HOME   &kp DOWN &kp END    &kp PG_DN /**/ &none    &kp F4    &kp F5  &kp F6   &kp F12  /**/  &none
+                           &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/ &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+
+
+      >;
+    };
+
+    func_layer {
+      bindings = <
+
+  &none   /**/    &bootloader &sys_reset &none &none &none /**/  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_NXT      /**/  &none
+  &none   /**/    &none       &none      &none &none &none /**/  &none       &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP    /**/  &none
+  &none   /**/    &none       &none      &none &none &none /**/  &none       &kp C_PREV      &kp C_PP        &kp C_NEXT      &kp C_MUTE      /**/  &none
+                                         &none &none &none /**/  &none &none &none
 
       >;
     };
