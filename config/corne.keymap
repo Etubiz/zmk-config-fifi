@@ -21,7 +21,7 @@
 
 
 &mt {
-  tapping-term-ms = <200>;
+  tapping-term-ms = <160>;
   flavor = "tap-preferred";
 };
 
@@ -218,7 +218,7 @@
       bindings = <
 
    &none /**/  &kp HASH &kp LESS_THAN   &kp GREATER_THAN  &kp DOLLAR    &kp PERCENT  /**/  &kp GRAVE   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp SQT   /**/  &none
-   &none /**/  &kp EXCL &kp KP_MINUS    &kp KP_PLUS       &kp KP_EQUAL  &kp AT       /**/  &kp BSLH    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0 /**/  &none
+   &none /**/  &kp EXCL &kp KP_MINUS    &kp KP_PLUS       &kp EQUAL     &kp AT       /**/  &kp BSLH    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0 /**/  &none
    &none /**/  &kp PIPE &kp KP_MULTIPLY &kp KP_DIVIDE     &kp AMPERSAND &kp TILDE    /**/  &kp CARET   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp DOT   /**/  &none
                                                 &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
