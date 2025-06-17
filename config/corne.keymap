@@ -50,6 +50,81 @@
         bindings = <&kp DOT>, <&kp EXCL>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+
+
+// &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I
+
+    laltr: l_alt_R {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm LALT R>, <&kp R>;
+    };
+    lctrls: l_control_S {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm LCTRL S>, <&kp S>;
+    };
+    lshftt: l_shift_T {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm LSHIFT T>, <&kp T>;
+    };
+
+    ralti: r_alt_I {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm RALT I>, <&kp I>;
+    };
+    rctrle: r_control_E {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm RCTRL E>, <&kp E>;
+    };
+    rshftn: r_shift_N {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm RSHIFT N>, <&kp N>;
+    };
+
+  // &hm LGUI LA(SPACE)  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+
+    guirun: lgui_powertoysrun {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <100>;
+        bindings = <&hm LGUI LA(SPACE)>, <&kp LGUI>;
+    };
+    symspace: sym_space {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&lt SYM SPACE>, <&kp SPACE>;
+    };
+    ltubspc: ltu_backspace {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&lt LTU BSPC>, <&kp BSPC>;
+    };
+    functab: func_tab {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&lt FUNC TAB>, <&kp TAB>;
+    };
+    numret: num_return {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&lt NUM RET>, <&kp RET>;
+    };
+
   };
 
   combos {
@@ -203,10 +278,10 @@
     default_layer {
       bindings = <
 
-  &none   /**/  &kp Q      &kp W       &kp F       &kp P           &kp B   /**/  &kp J    &kp L           &kp U       &kp Y       &kp SQT   /**/  &none
-  &none   /**/  &kp A      &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I  &kp O     /**/  &none
-  &none   /**/  &kp Z      &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &commaat    &dotex      &kp FSLH  /**/  &none
-                                      &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+  &none   /**/  &kp Q      &kp W       &kp F       &kp P      &kp B   /**/  &kp J    &kp L     &kp U       &kp Y    &kp SQT   /**/  &none
+  &none   /**/  &kp A      &laltr      &lctrls     &lshftt    &kp G   /**/  &kp M    &rshftn   &rctrle     &ralti   &kp O     /**/  &none
+  &none   /**/  &kp Z      &kp X       &kp C       &kp D      &kp V   /**/  &kp K    &kp H     &commaat    &dotex   &kp FSLH  /**/  &none
+                                           &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
 
       >;
     };
@@ -228,7 +303,7 @@
   &none   /**/  &none      &none     &none      &none       &none  /**/  &none     &kp N8         &kp N7    &none     &none  /**/  &none
   &none   /**/  &kp N1     &none     &kp N6     &kp LSHIFT  &none  /**/  &none     &hm RSHIFT N4  &kp N3    &kp N5    &none  /**/  &none
   &none   /**/  &kp EQUAL  &none     &kp N2     &none       &none  /**/  &none     &none          &none     &none     &none  /**/  &none
-                              &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+                                        &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
 
       >;
     };
@@ -239,7 +314,7 @@
    &none /**/  &kp HASH &kp LESS_THAN   &kp GREATER_THAN  &kp DOLLAR    &kp PERCENT  /**/  &kp GRAVE   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp SQT   /**/  &none
    &none /**/  &kp EXCL &kp KP_MINUS    &kp KP_PLUS       &kp EQUAL     &kp AT       /**/  &kp BSLH    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0 /**/  &none
    &none /**/  &kp PIPE &kp KP_MULTIPLY &kp KP_DIVIDE     &kp AMPERSAND &kp TILDE    /**/  &kp CARET   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp DOT   /**/  &none
-                                                &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+                                                          &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
 
 
       >;
@@ -251,7 +326,7 @@
   &none   /**/  &none  &kp INSERT &none    &kp DELETE &none     /**/ &none    &kp F7    &kp F8  &kp F9   &kp F10 /**/  &none
   &none   /**/  &none  &kp LEFT   &kp UP   &kp RIGHT  &kp PG_UP /**/ &none    &kp F1    &kp F2  &kp F3   &kp F11  /**/  &none
   &none   /**/  &none  &kp HOME   &kp DOWN &kp END    &kp PG_DN /**/ &none    &kp F4    &kp F5  &kp F6   &kp F12  /**/  &none
-                           &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/ &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
+                                     &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
 
 
       >;
