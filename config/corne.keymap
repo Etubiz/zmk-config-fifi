@@ -37,16 +37,29 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
+    
+    commaat: comma_at {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp COMMA>, <&kp AT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    dotex: dot_exlamation {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp DOT>, <&kp EXCL>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
   };
 
   combos {
     compatible = "zmk,combos";
 
-    combo_exclamation {
+    combo_colon {
         timeout-ms = <50>;
         layers = <DEFAULT>;
         key-positions = <7 9>;
-        bindings = <&kp EXCL>;
+        bindings = <&kp COLON>;
     };
     combo_rsquare {
         timeout-ms = <50>;
@@ -92,11 +105,11 @@
         key-positions = <31 32>;
         bindings = <&caps_word>;
     };
-    combo_colon {
+    combo_rpointy {
         timeout-ms = <50>;
         layers = <ALL>;
         key-positions = <31 33>;
-        bindings = <&kp COLON>;
+        bindings = <&kp GREATER_THAN>;
     };
     combo_rsquiggly {
         timeout-ms = <50>;
@@ -127,6 +140,12 @@
         layers = <GAME>;
         key-positions = <2 4>;
         bindings = <&tog GAME>;
+    };
+    combo_dash {
+        timeout-ms = <50>;
+        layers = <DEFAULT>;
+        key-positions = <2 4>;
+        bindings = <&kp KP_MINUS>;
     };
     combo_paste {
         timeout-ms = <50>;
@@ -160,12 +179,6 @@
         key-positions = <26 27>;
         bindings = <&kp LEFT_BRACE>;
     };
-    combo_dash {
-        timeout-ms = <50>;
-        layers = <DEFAULT>;
-        key-positions = <26 28>;
-        bindings = <&kp KP_MINUS>;
-    };
     combo_copy {
         timeout-ms = <50>;
         key-positions = <27 28>;
@@ -175,6 +188,12 @@
         timeout-ms = <50>;
         key-positions = <26 27 28>;
         bindings = <&kp RC(X)>;
+    };
+    combo_lpointy {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <26 28>;
+        bindings = <&kp LESS_THAN>;
     };
   };
 
@@ -186,7 +205,7 @@
 
   &none   /**/  &kp Q      &kp W       &kp F       &kp P           &kp B   /**/  &kp J    &kp L           &kp U       &kp Y       &kp SQT   /**/  &none
   &none   /**/  &kp A      &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I  &kp O     /**/  &none
-  &none   /**/  &kp Z      &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &kp COMMA   &kp DOT     &kp FSLH  /**/  &none
+  &none   /**/  &kp Z      &kp X       &kp C       &kp D           &kp V   /**/  &kp K    &kp H           &commaat    &dotex      &kp FSLH  /**/  &none
                                       &kp LGUI  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
       >;
