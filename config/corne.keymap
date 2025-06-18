@@ -32,12 +32,12 @@
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
-      tapping-term-ms = <200>;
+      tapping-term-ms = <160>;
       quick-tap-ms = <0>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
-    
+
     commaat: comma_at {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
@@ -54,6 +54,7 @@
 
 // &hm LALT R  &hm LCTRL S &hm LSHIFT T    &kp G   /**/  &kp M    &hm RSHIFT N    &hm RCTRL E &hm RALT I
 
+    /*
     laltr: l_alt_R {
         compatible = "zmk,behavior-tap-dance";
         #binding-cells = <0>;
@@ -91,15 +92,17 @@
         tapping-term-ms = <200>;
         bindings = <&hm RSHIFT N>, <&kp N>;
     };
+    */
 
   // &hm LGUI LA(SPACE)  &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &kp UNDERSCORE
 
     guirun: lgui_powertoysrun {
         compatible = "zmk,behavior-tap-dance";
         #binding-cells = <0>;
-        tapping-term-ms = <100>;
+        tapping-term-ms = <200>;
         bindings = <&hm LGUI LA(SPACE)>, <&kp LGUI>;
     };
+    /*
     symspace: sym_space {
         compatible = "zmk,behavior-tap-dance";
         #binding-cells = <0>;
@@ -124,6 +127,7 @@
         tapping-term-ms = <200>;
         bindings = <&lt NUM RET>, <&kp RET>;
     };
+    */
 
   };
 
@@ -132,7 +136,7 @@
 
     combo_colon {
         timeout-ms = <50>;
-        layers = <DEFAULT>;
+        layers = <ALL>;
         key-positions = <7 9>;
         bindings = <&kp COLON>;
     };
@@ -149,11 +153,11 @@
         bindings = <&kp LG(LS(S))>;
     };
 
-    combo_repeat {
+    /*combo_repeat {
         timeout-ms = <50>;
         key-positions = <19 20>;
         bindings = <&key_repeat>;
-    };
+    };*/
     combo_semicolon {
         timeout-ms = <50>;
         layers = <ALL>;
@@ -168,7 +172,7 @@
     };
     combo_redo {
         timeout-ms = <50>;
-        layers = <DEFAULT>;
+        layers = <ALL>;
         key-positions = <21 22>;
         bindings = <&kp RC(RS(Z))>;
     };
@@ -210,28 +214,29 @@
         key-positions = <2 3>;
         bindings = <&kp LEFT_BRACKET>;
     };
-    combo_game_out {
-        timeout-ms = <50>;
-        layers = <GAME>;
-        key-positions = <2 4>;
-        bindings = <&tog GAME>;
-    };
     combo_dash {
         timeout-ms = <50>;
-        layers = <DEFAULT>;
+        layers = <ALL>;
         key-positions = <2 4>;
         bindings = <&kp KP_MINUS>;
     };
     combo_paste {
         timeout-ms = <50>;
+        layers = <ALL>;
         key-positions = <3 4>;
         bindings = <&kp RC(V)>;
+    };
+    combo_game_out {
+        timeout-ms = <50>;
+        layers = <GAME>;
+        key-positions = <3 4>;
+        bindings = <&tog GAME>;
     };
 
 
     combo_undo {
         timeout-ms = <50>;
-        layers = <DEFAULT>;
+        layers = <ALL>;
         key-positions = <13 14>;
         bindings = <&kp RC(Z)>;
     };
@@ -241,10 +246,16 @@
         key-positions = <14 15>;
         bindings = <&kp LEFT_PARENTHESIS>;
     };
+    combo_underscore {
+        timeout-ms = <50>;
+        layers = <ALL>;
+        key-positions = <14 16>;
+        bindings = <&tog GAME>;
+    };
     combo_game_in {
         timeout-ms = <50>;
         layers = <DEFAULT>;
-        key-positions = <14 16>;
+        key-positions = <15 16>;
         bindings = <&tog GAME>;
     };
 
@@ -256,11 +267,13 @@
     };
     combo_copy {
         timeout-ms = <50>;
+        layers = <ALL>;
         key-positions = <27 28>;
         bindings = <&kp RC(C)>;
     };
     combo_cut {
         timeout-ms = <50>;
+        layers = <ALL>;
         key-positions = <26 27 28>;
         bindings = <&kp RC(X)>;
     };
@@ -278,10 +291,10 @@
     default_layer {
       bindings = <
 
-  &none   /**/  &kp Q      &kp W       &kp F       &kp P      &kp B   /**/  &kp J    &kp L     &kp U       &kp Y    &kp SQT   /**/  &none
-  &none   /**/  &kp A      &laltr      &lctrls     &lshftt    &kp G   /**/  &kp M    &rshftn   &rctrle     &ralti   &kp O     /**/  &none
-  &none   /**/  &kp Z      &kp X       &kp C       &kp D      &kp V   /**/  &kp K    &kp H     &commaat    &dotex   &kp FSLH  /**/  &none
-                                           &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
+  &none   /**/  &kp Q      &kp W       &kp F       &kp P        &kp B   /**/  &kp J    &kp L        &kp U       &kp Y      &kp SQT   /**/  &none
+  &none   /**/  &kp A      &hm LALT R  &hm LCTRL S &hm LSHIFT T &kp G   /**/  &kp M    &hm RSHIFT N &hm RCTRL E &hm RALT I &kp O     /**/  &none
+  &none   /**/  &kp Z      &kp X       &kp C       &kp D        &kp V   /**/  &kp K    &kp H        &commaat    &dotex     &kp FSLH  /**/  &none
+                                     &guirun &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &key_repeat
 
       >;
     };
@@ -303,7 +316,7 @@
   &none   /**/  &none      &none     &none      &none       &none  /**/  &none     &kp N8         &kp N7    &none     &none  /**/  &none
   &none   /**/  &kp N1     &none     &kp N6     &kp LSHIFT  &none  /**/  &none     &hm RSHIFT N4  &kp N3    &kp N5    &none  /**/  &none
   &none   /**/  &kp EQUAL  &none     &kp N2     &none       &none  /**/  &none     &none          &none     &none     &none  /**/  &none
-                                        &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
+                                &guirun &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &key_repeat
 
       >;
     };
@@ -311,10 +324,10 @@
     num_layer {
       bindings = <
 
-   &none /**/  &kp HASH &kp LESS_THAN   &kp GREATER_THAN  &kp DOLLAR    &kp PERCENT  /**/  &kp GRAVE   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp SQT   /**/  &none
-   &none /**/  &kp EXCL &kp KP_MINUS    &kp KP_PLUS       &kp EQUAL     &kp AT       /**/  &kp BSLH    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0 /**/  &none
-   &none /**/  &kp PIPE &kp KP_MULTIPLY &kp KP_DIVIDE     &kp AMPERSAND &kp TILDE    /**/  &kp CARET   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp DOT   /**/  &none
-                                                          &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
+   &none /**/  &kp HASH &kp LESS_THAN   &kp GREATER_THAN  &kp DOLLAR    &kp PERCENT  /**/  &kp GRAVE  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp SQT   /**/  &none
+   &none /**/  &kp EXCL &kp KP_MINUS    &kp KP_PLUS       &kp EQUAL     &kp AT       /**/  &kp DOT    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N0 /**/  &none
+   &none /**/  &kp PIPE &kp KP_MULTIPLY &kp KP_DIVIDE     &kp AMPERSAND &kp TILDE    /**/  &kp CARET  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp BSLH  /**/  &none
+                                                  &guirun &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &key_repeat
 
 
       >;
@@ -326,7 +339,7 @@
   &none   /**/  &none  &kp INSERT &none    &kp DELETE &none     /**/ &none    &kp F7    &kp F8  &kp F9   &kp F10 /**/  &none
   &none   /**/  &none  &kp LEFT   &kp UP   &kp RIGHT  &kp PG_UP /**/ &none    &kp F1    &kp F2  &kp F3   &kp F11  /**/  &none
   &none   /**/  &none  &kp HOME   &kp DOWN &kp END    &kp PG_DN /**/ &none    &kp F4    &kp F5  &kp F6   &kp F12  /**/  &none
-                                     &guirun &symspace &ltubspc /**/  &functab &numret   &kp UNDERSCORE
+                             &guirun &lt SYM SPACE &lt LTU BSPC /**/  &lt FUNC TAB &lt NUM RET &key_repeat
 
 
       >;
@@ -335,10 +348,10 @@
     func_layer {
       bindings = <
 
-  &none   /**/    &bootloader &sys_reset &none &none &none /**/  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_NXT      /**/  &none
-  &none   /**/    &none       &none      &none &none &none /**/  &none       &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP    /**/  &none
-  &none   /**/    &none       &none      &none &none &none /**/  &none       &kp C_PREV      &kp C_PP        &kp C_NEXT      &kp C_MUTE      /**/  &none
-                                         &none &none &none /**/  &none &none &none
+  &none   /**/    &none &sys_reset &none &none &none /**/  &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_NXT      /**/  &none
+  &none   /**/    &none &none      &none &none &none /**/  &none       &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP    /**/  &none
+  &none   /**/    &none &none      &none &none &none /**/  &none       &kp C_PREV      &kp C_PP        &kp C_NEXT      &kp C_MUTE      /**/  &none
+                             &bootloader &none &none /**/  &none &none &bootloader
 
       >;
     };
